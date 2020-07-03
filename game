@@ -1,0 +1,41 @@
+namespace rock_paper_scissors
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 0;
+            while (i <= 10)
+            {
+                string userInput, cpuInput;
+                Random rnd = new Random();
+
+                Console.WriteLine("kindly enter your choice , ROCK ,PAPER OR SCISSORS: ");
+                userInput = Console.ReadLine().ToLower();
+                var random = new Random();
+                var list = new List<string> { "rock", "paper", "scissors" };
+                int index = random.Next(list.Count);
+                Console.WriteLine("USER INPUT: " + userInput);
+                Console.WriteLine("CPU INPUT: " + list[index]);
+                cpuInput = list[index];
+               
+                    if (userInput != "rock" && userInput != "paper" &&userInput != "scissors")
+                {
+                    Console.WriteLine("invalid input");
+                    Console.ReadKey();
+                    break;
+
+                }
+                else if (userInput == cpuInput){ Console.WriteLine("draw, no winner play again ");}
+                else if (userInput == "paper" && cpuInput == "rock" || userInput == "rock" && cpuInput == "scissors")
+                { Console.WriteLine("user wins "); }
+                else if (userInput == "rock" && cpuInput == "paper" || userInput == "scissors" && cpuInput == "rock")
+                {Console.WriteLine("CPU wins ");}
+                Console.ReadKey();
+                i++;
+                
+            }
+            
+        }
+    }
+}
